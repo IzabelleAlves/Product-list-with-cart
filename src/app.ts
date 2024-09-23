@@ -1,7 +1,3 @@
-// importar data.json
-// importar entities/product.ts
-//criar os objetos de produto utilizando os dados data.json
-
 import { Produto } from "./entites/product";
 import data from "../data.json" // data é variável. Não utiliza a chave porque aqui é um dado bruto
 
