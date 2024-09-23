@@ -64,4 +64,5 @@ export class Product {
 
     productCard.append(productImage, addCartBtn, productInfo);
   }
+  
 }
