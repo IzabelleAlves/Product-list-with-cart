@@ -36,6 +36,40 @@ export class Product {
               </div>
               <span>Add to Cart</span>`;
 
+    let itemCount = 0;
+
+    addCartBtn.addEventListener("click", () => {
+        addCartBtn.classList.add("colorBtnIcons")
+        if (itemCount === 0) {
+            itemCount++
+
+          addCartBtn.innerHTML = `
+            <div class="decrement-btn"><i class="fa fa-minus-circle-o" aria-hidden="true"></i></div>
+            <span class="item-count">${itemCount}</span>
+            <div class="increment-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+          `;
+      
+          const decrementBtn = addCartBtn.querySelector(".decrement-btn");
+          const incrementBtn = addCartBtn.querySelector(".increment-btn");
+          
+          if (incrementBtn){
+              incrementBtn.addEventListener("click", (event) => {
+                itemCount++;
+                addCartBtn.querySelector(".item-count").innerText = itemCount;
+              });
+          }
+          
+          if (decrementBtn){
+              decrementBtn.addEventListener("click", (event) => {
+                if (itemCount >= 0) {
+                  itemCount--;
+                  addCartBtn.querySelector(".item-count").innerText = itemCount;
+                }
+              });
+          }
+        }
+      });
+      
     const productInfo = document.createElement("div");
     productInfo.className = "product-information";
 
@@ -64,5 +98,6 @@ export class Product {
 
     productCard.append(productImage, addCartBtn, productInfo);
   }
+  
   
 }

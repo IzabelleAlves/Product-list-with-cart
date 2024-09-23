@@ -108,6 +108,7 @@ main {
   /* transform: translateX(-50%); */
   left: 50%;
   bottom: 25%;
+  cursor: pointer;
   /* bottom: 95px; */
 }
 
@@ -154,4 +155,15 @@ main {
   .cards {
     flex-direction: column;
   }
+}
+
+.colorBtnIcons{
+    background-color: $main-color;
+    display: flex;
+    justify-content: space-between;
+}
+
+.decrement-btn, .increment-btn {
+    
+    color: $white !important;
 }
