@@ -1,67 +1,67 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuid4 } from "uuid";
 
-export class Produto {
-    private _id: string = uuidv4();
-    private _name: string;
-    private _imageUrl: string;
-    private _price: number;
-    private _category: string;
+export class Product {
+  private _id: string = uuid4();
+  private _name: string = "";
+  private _category: string = "";
+  private _price: number = 0;
+  private _imageUrl: string = "";
 
-    constructor (
-        name: string, 
-        category: string, 
-        price: number,
-        imageUrl: string
-    ) {
-        this._name = name,
-        this._category = category,
-        this._price = price,
-        this._imageUrl = imageUrl
-    }
-    
-    render() {
-        const containerPrincipal = document.createElement("div")
-        containerPrincipal.className = "container-principal"
+  constructor(name: string, category: string, price: number, imageUrl: string) {
+    (this._category = category),
+      (this._price = price),
+      (this._name = name),
+      (this._imageUrl = imageUrl);
+  }
 
-        const productsImage = document.createElement("div");
-        productsImage.className = "cards";    //deixar esse como uma div que recebe os outros
+  get price(){
+    return this._price
+  }
 
-        const productCard = document.createElement("div");
-        productCard.className = "product-card";
-        productCard.innerHTML = `
-            <img class="product-image" src="${this._imageUrl}" alt="${this._name}">
-            <div class="product-information"> 
-                <p class="product-category">${this._category}</p>
-                <p class="product-title">${this._name}</p>
-                <p class="product-price">$${this._price.toFixed(2)}</p>
-            </div>
-        `;
+  renderProducts() {
+    const productCard = document.createElement("div");
+    productCard.className = "product-card";
 
-        const addToCart = document.createElement("div");
-        addToCart.className = "add-cart-btn";
-        addToCart.innerHTML = `
-            <div class="add-cart-icon">
+    const productImage = document.createElement("div");
+    productImage.className = "product-image";
+    productImage.innerHTML = `<img
+                src="${this._imageUrl}"
+                alt="${this._name}"
+              />`;
+
+    const addCartBtn = document.createElement("div");
+    addCartBtn.className = "add-cart-btn";
+    addCartBtn.innerHTML = `<div class="add-cart-icon">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </div>
-            <span>Add to Cart</span>
-        `;
-        productCard.appendChild(addToCart); 
-        productsImage.appendChild(productCard);
-        containerPrincipal.appendChild(productsImage);
+              </div>
+              <span>Add to Cart</span>`;
 
-        const mainContainer = document.getElementById('main-id');
-        if (mainContainer) {
-            mainContainer.appendChild(containerPrincipal);
-        }
+    const productInfo = document.createElement("div");
+    productInfo.className = "product-information";
 
-        return containerPrincipal;
+    const productCat = document.createElement("div");
+    productCat.className = "product-category";
+    productCat.innerHTML = `<span>${this._category}</span>`;
+
+    const productName = document.createElement("div");
+    productName.className = "product-name";
+    productName.innerHTML = `<span>${this._name}</span>`;
+
+    const productPrice = document.createElement("div");
+    productPrice.className = "product-price";
+    productPrice.innerHTML = `<span>$ ${this._price}</span>`;
+
+    if (productInfo) {
+      productInfo.appendChild(productCat);
+      productInfo.appendChild(productName);
+      productInfo.appendChild(productPrice);
     }
-    
-    add() {
-        return this._id;
+
+    const cards = document.getElementById("cards");
+    if (cards) {
+      cards.appendChild(productCard);
     }
-    
-    remove() {
-        console.log("olá")
-    }
+
+    productCard.append(productImage, addCartBtn, productInfo);
+  }
 }
