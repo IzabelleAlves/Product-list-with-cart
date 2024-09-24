@@ -198,3 +198,23 @@ main {
     flex-direction: column;
   }
 }
+
+.order-btn {
+  height: 30px;
+  width: 200px;
+  background-color: $main-color;
+  color: $white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.total-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px;
+}

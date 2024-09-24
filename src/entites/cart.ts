@@ -28,8 +28,14 @@ export class Cart {
             this._products.push(new Product(product.name, product.category, product.price, product.imageUrl, quantity));
         }
         this.updateCart();
+        // this._total += product.price;
+        // this._products.push(product);
+        // this.updateCart();
     }
 
+    getItems() {
+        return this._products;
+    }
 
     updateCart() {
         const cartContainer = document.getElementById("cart-content");
