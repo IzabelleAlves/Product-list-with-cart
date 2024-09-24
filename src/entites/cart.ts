@@ -28,9 +28,6 @@ export class Cart {
             this._products.push(new Product(product.name, product.category, product.price, product.imageUrl, quantity));
         }
         this.updateCart();
-        // this._total += product.price;
-        // this._products.push(product);
-        // this.updateCart();
     }
 
     getItems() {
@@ -51,9 +48,9 @@ export class Cart {
                 itemElement.innerHTML = `
                     <span class="names-styles">${product.name}</span>
                     <div class="infoCart">
-                    <span class="quantity-styles">X${product.quantity}</span>
-                    <span class="price-styles">$ ${product.price.toFixed(2)}</span>
-                    <span class="price-styles">$ ${(product.price * product.quantity).toFixed(2)}</span>
+                        <span class="quantity-styles">X${product.quantity}</span>
+                        <span class="price-styles">$ ${product.price.toFixed(2)}</span>
+                        <span class="price-styles">$ ${(product.price * product.quantity).toFixed(2)}</span>
                     </div>
                 `;
                 cartContainer.appendChild(itemElement);
