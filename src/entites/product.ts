@@ -7,16 +7,38 @@ export class Product {
   private _category: string = "";
   private _price: number = 0;
   private _imageUrl: string = "";
+  private _quantity: number = 1
 
-  constructor(name: string, category: string, price: number, imageUrl: string) {
-    (this._category = category),
-      (this._price = price),
-      (this._name = name),
-      (this._imageUrl = imageUrl);
+  constructor(name: string, category: string, price: number, imageUrl: string, quantity: number = 1) {
+      this._category = category,
+      this._price = price,
+      this._name = name,
+      this._imageUrl = imageUrl;
+      this._quantity = quantity;
+  }
+
+  get category(){
+    return this._category;
+  }
+
+  get imageUrl(){
+    return this._imageUrl;
+  }
+
+  get quantity() {
+    return this._quantity;
   }
 
   get price(){
-    return this._price
+    return this._price;
+  }
+
+  get name(){
+    return this._name;
+  }
+
+  incrementQuantity() {
+    this._quantity++;
   }
 
   //Renderizar os produtos dinamicamente
@@ -49,27 +71,10 @@ export class Product {
     addCartBtn.addEventListener("click", () => {
         addCartBtn.classList.add("colorBtnIcons")
 
-        //Removendo a imagem do carrinho vazio do Cart
-        const cartBox = document.getElementById("cart-content")
-          //TENTAR LINKAR O CART CONTENT C O CARRINHO DE COMPRAS
-          if (cartBox) {
-            const divsToRemove = cartBox.querySelectorAll(".image-if-empety, .show-if-empty");
-        
-            divsToRemove.forEach((div) => {
-                cartBox.removeChild(div); 
-            });
-        }
-
-        //add uma nova div ao cart-content 
-        const newDiv = document.createElement("div");
-        newDiv.className = "show-orders"; 
-
-        if (cartBox){
-          cartBox.appendChild(newDiv);
-        }
-      
         //Altera diretamente o valor que vemos ao add e remover
         if (itemCount === 0) {
+
+          //VER COMO LINKAR O ITEMCOUNT AO CART
 
           addCartBtn.innerHTML = `
             <div class="decrement-btn"><i class="fa fa-minus-circle" aria-hidden="true"></i></div>
@@ -83,9 +88,10 @@ export class Product {
           if (incrementBtn){
               incrementBtn.addEventListener("click", (event) => {
                 itemCount++;
-                addCartBtn.querySelector(".item-count").innerText = itemCount;
-                cart.addToCart(this)
-                
+                const itemCountElement = addCartBtn.querySelector(".item-count");
+                if (itemCountElement) {
+                  itemCountElement.innerHTML = `${itemCount}`;
+                }
               });
           }
           
@@ -93,16 +99,14 @@ export class Product {
               decrementBtn.addEventListener("click", (event) => {
                 if (itemCount > 0) {
                   itemCount--;
-                  addCartBtn.querySelector(".item-count").innerText = itemCount;
-                  if (itemCount === 0) {
-                    const index = cart.products.indexOf(this);
-                    if (index > -1) {
-                      cart.addToCart(this)
-                    }
+                  const itemCountElement = addCartBtn.querySelector(".item-count");
+                  if (itemCountElement) {
+                    itemCountElement.innerHTML = `${itemCount}`;
                   }
                 }
               });
           }
+          cart.addToCart(this, itemCount);
         }
       });
 
