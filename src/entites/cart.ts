@@ -19,4 +19,8 @@ export class Cart {
         this._products.push(product)
     }
 
+    removeToCart(product: Product){
+        this._total = product.price
+        this._products.push(product)
+    }
 }

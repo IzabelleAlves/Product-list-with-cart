@@ -3,10 +3,10 @@ import data from "../data.json" // data é variável. Não utiliza a chave porqu
 import { Cart } from "./entites/cart";
 
 
-const product1 = new Product('banana', 'fruta', 10, "www.google.com")
-const cart = new Cart()
-cart.addToCart(product1)
-console.log(cart)
+// const product1 = new Product('banana', 'fruta', 10, "www.google.com")
+// const cart = new Cart()
+// cart.addToCart(product1)
+// console.log(cart)
 
 
 for (let i = 0; i < data.length; i++){
@@ -16,5 +16,6 @@ for (let i = 0; i < data.length; i++){
         data[i].price, 
         data[i].image.desktop
     );
-    produto.renderProducts()
+    const cart = new Cart()
+    produto.renderProducts(cart)
 }
