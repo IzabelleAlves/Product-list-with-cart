@@ -25,7 +25,7 @@ O projeto é composto pelos seguintes arquivos principais:
   git clone https://github.com/IzabelleAlves/Product-list-with-cart.git/
 ```
 
-- Instale as dependências::
+- Instale as dependências:
 
 ```bash
   npm install
@@ -47,11 +47,14 @@ O projeto é composto pelos seguintes arquivos principais:
 
 **_Telas_**
 _Tela principal_
-![](imagens-projeto/image.png)
+![](imagens-projeto/image.png)!
 
-| _Item adicionado ao carrinho_   | _Carrinho atualizado com o item_ |
-| ------------------------------- | -------------------------------- |
-| ![](imagens-projeto/image1.png) | ![](imagens-projeto/image2.png)  |
+| Item adicionado ao carrinho     | Carrinho atualizado com o item  |
+| ------------------------------- | ------------------------------- |
+| ![](imagens-projeto/image1.png) | ![](imagens-projeto/image2.png) |
+
+_Modal de confirmação do pedido_
+![](imagens-projeto/image3.png)
 
 **_Entre em contato comigo_**
 
