@@ -49,10 +49,6 @@ export class Cart {
         this.updateCart();
     }
 
-    getItems() {
-        return this._products;
-    }
-
     updateCart() {
         const cartContainer = document.getElementById("cart-content");
 

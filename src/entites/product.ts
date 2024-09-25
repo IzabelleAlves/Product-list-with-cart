@@ -8,7 +8,6 @@ export class Product {
   private _price: number = 0;
   private _imageUrl: string = "";
   private _quantity: number = 0;
-  // private _total: number = 0
 
   constructor(
     id: number,
@@ -18,12 +17,12 @@ export class Product {
     imageUrl: string,
     quantity: number = 0
   ) {
-    this._id = id;
+    (this._id = id),
     (this._category = category),
-      (this._price = price),
-      (this._name = name),
-      (this._imageUrl = imageUrl);
-    this._quantity = quantity;
+    (this._price = price),
+    (this._name = name),
+    (this._imageUrl = imageUrl),
+    (this._quantity = quantity)
   }
 
   get category() {
@@ -60,6 +59,7 @@ export class Product {
 
   //Renderizar os produtos dinamicamente
   renderProducts(cart: Cart) {
+
     //Card
     const productCard = document.createElement("div");
     productCard.className = "product-card";
@@ -83,60 +83,62 @@ export class Product {
     const incrementBtn = `<i class="fa fa-plus-circle" aria-hidden="true"></i>`;
     const decrementBtn = `<i class="fa fa-minus-circle" aria-hidden="true"></i>`;
 
-
     //Evento para alterar a quantidade dos itens selecionados e mudar o itemCount
     addCartBtn.addEventListener("click", () => {
       addCartBtn.classList.add("colorBtnIcons");
 
-      //Altera diretamente o valor que vemos ao add e remover
+    //Altera diretamente o valor que vemos ao add e remover
       if (this._quantity === 0) {
-        addCartBtn.innerHTML = `
-            <div class="decrement-btn">${decrementBtn}</div>
-            <span class="item-count">${this._quantity}</span>
-            <div class="increment-btn">${incrementBtn}</div>
-          `;
+      addCartBtn.innerHTML = `
+          <div class="decrement-btn">${decrementBtn}</div>
+          <span class="item-count">${this._quantity}</span>
+          <div class="increment-btn">${incrementBtn}</div>
+        `;
 
-        const selectDecrementBtn = addCartBtn.querySelector(".decrement-btn");
-        const selectIncrementBtn = addCartBtn.querySelector(".increment-btn");
+      const selectDecrementBtn = addCartBtn.querySelector(".decrement-btn");
+      const selectIncrementBtn = addCartBtn.querySelector(".increment-btn");
 
-        if (selectIncrementBtn) {
-          selectIncrementBtn.addEventListener("click", (event) => {
-            this._quantity++;
+      if (selectIncrementBtn) {
+        selectIncrementBtn.addEventListener("click", (event) => {
+          this._quantity++;
+          const itemCountElement = addCartBtn.querySelector(".item-count");
+          if (itemCountElement) {
+            itemCountElement.innerHTML = `${this._quantity}`;
+          }
+          cart.addToCart(this, this._quantity);
+        });
+      }
+
+      if (selectDecrementBtn) {
+        selectDecrementBtn.addEventListener("click", (event) => {
+          if (this._quantity > 0) {
+            this._quantity--;
             const itemCountElement = addCartBtn.querySelector(".item-count");
             if (itemCountElement) {
               itemCountElement.innerHTML = `${this._quantity}`;
             }
-            cart.addToCart(this, this._quantity);
-          });
-        }
-
-        if (selectDecrementBtn) {
-          selectDecrementBtn.addEventListener("click", (event) => {
-            if (this._quantity > 0) {
-              this._quantity--;
-              const itemCountElement = addCartBtn.querySelector(".item-count");
-              if (itemCountElement) {
-                itemCountElement.innerHTML = `${this._quantity}`;
-              }
-              cart.removeFromCart(this)
-            }
-          });
-        }
+            cart.removeFromCart(this);
+          }
+        });
       }
-    });
+    }
+  });
 
     //Criando as informações dos cards
     const productInfo = document.createElement("div");
     productInfo.className = "product-information";
 
+  //categoria
     const productCat = document.createElement("div");
     productCat.className = "product-category";
     productCat.innerHTML = `<span>${this._category}</span>`;
 
+    //imagem
     const productName = document.createElement("div");
     productName.className = "product-name";
     productName.innerHTML = `<span>${this._name}</span>`;
 
+    //preço
     const productPrice = document.createElement("div");
     productPrice.className = "product-price";
     productPrice.innerHTML = `<span>$ ${this._price.toFixed(2)}</span>`;
