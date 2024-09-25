@@ -14,18 +14,32 @@ export class Cart {
 
     addToCart(product: Product, quantity: number) {
         const existingProduct = this._products.find(p => 
-            p.name == product.name &&
-            p.category == product.category &&
-            p.price == product.price &&
-            p.imageUrl == product.imageUrl 
+            p.id === product.id
         );
-        
+
         if (existingProduct) {
             existingProduct.incrementQuantity();
-            this._total += product.price; 
+            this._total += product.price;
         } else {
             this._total += product.price * quantity; 
-            this._products.push(new Product(product.name, product.category, product.price, product.imageUrl, quantity));
+            this._products.push(new Product(product.id ,product.name, product.category, product.price, product.imageUrl, quantity));
+        }
+        this.updateCart();
+    }
+
+    removeFromCart(product: Product) {
+        const existingProduct = this._products.find(p => 
+            p.id === product.id
+        );
+
+        if (existingProduct) {
+            if (existingProduct.quantity > 1) {
+                existingProduct.decrementQuantity();
+                this._total -= product.price;
+            } else {
+                this._products = this._products.filter(p => p.id !== product.id)
+            }
+            
         }
         this.updateCart();
     }
@@ -41,7 +55,7 @@ export class Cart {
 
         if (cartContainer) {
             cartContainer.innerHTML = ""; 
-
+            
             this.products.forEach((product) => {
                 const itemElement = document.createElement("div");
                 itemElement.className = "cart-item";
@@ -53,7 +67,7 @@ export class Cart {
                         <span class="price-styles">$ ${(product.price * product.quantity).toFixed(2)}</span>
                     </div>
                 `;
-                cartContainer.appendChild(itemElement);
+                cartContainer.append(itemElement);
             });
 
             const totalPrice = document.createElement("div");

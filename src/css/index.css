@@ -123,7 +123,7 @@ main {
   position: relative;
 }
 
-.image-if-empety svg {
+.image-if-empty svg {
   position: absolute;
   background-color: #fff;
   transform: translateY(0%);

@@ -2,26 +2,34 @@ import { v4 as uuid4 } from "uuid";
 import { Cart } from "./cart";
 
 export class Product {
-  private _id: string = uuid4();
+  private _id: number;
   private _name: string = "";
   private _category: string = "";
   private _price: number = 0;
   private _imageUrl: string = "";
-  private _quantity: number = 1
+  private _quantity: number = 0;
 
-  constructor(name: string, category: string, price: number, imageUrl: string, quantity: number = 1) {
-      this._category = category,
-      this._price = price,
-      this._name = name,
-      this._imageUrl = imageUrl;
-      this._quantity = quantity;
+  constructor(
+    id: number,
+    name: string,
+    category: string,
+    price: number,
+    imageUrl: string,
+    quantity: number = 0
+  ) {
+    this._id = id;
+    (this._category = category),
+      (this._price = price),
+      (this._name = name),
+      (this._imageUrl = imageUrl);
+    this._quantity = quantity;
   }
 
-  get category(){
+  get category() {
     return this._category;
   }
 
-  get imageUrl(){
+  get imageUrl() {
     return this._imageUrl;
   }
 
@@ -29,21 +37,28 @@ export class Product {
     return this._quantity;
   }
 
-  get price(){
+  get price() {
     return this._price;
   }
 
-  get name(){
+  get name() {
     return this._name;
+  }
+
+  get id() {
+    return this._id;
   }
 
   incrementQuantity() {
     this._quantity++;
   }
 
+  decrementQuantity() {
+    this._quantity--;
+  }
+
   //Renderizar os produtos dinamicamente
   renderProducts(cart: Cart) {
-
     //Card
     const productCard = document.createElement("div");
     productCard.className = "product-card";
@@ -64,51 +79,54 @@ export class Product {
               </div>
               <span>Add to Cart</span>`;
 
-    //Variável para iterar itens que foram selecionados 
-    let itemCount = 0;
+    const incrementBtn = `<i class="fa fa-plus-circle" aria-hidden="true"></i>`;
+    const decrementBtn = `<i class="fa fa-minus-circle" aria-hidden="true"></i>`;
+
+    //Variável para iterar itens que foram selecionados
+    // let itemCount = 0;
+
+    console.log("this._quantity product", this._quantity);
 
     //Evento para alterar a quantidade dos itens selecionados e mudar o itemCount
     addCartBtn.addEventListener("click", () => {
-        addCartBtn.classList.add("colorBtnIcons")
+      addCartBtn.classList.add("colorBtnIcons");
 
-        //Altera diretamente o valor que vemos ao add e remover
-        if (itemCount === 0) {
-
-          //VER COMO LINKAR O ITEMCOUNT AO CART
-
-          addCartBtn.innerHTML = `
-            <div class="decrement-btn"><i class="fa fa-minus-circle" aria-hidden="true"></i></div>
-            <span class="item-count">${itemCount}</span>
-            <div class="increment-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+      //Altera diretamente o valor que vemos ao add e remover
+      if (this._quantity === 0) {
+        addCartBtn.innerHTML = `
+            <div class="decrement-btn">${decrementBtn}</div>
+            <span class="item-count">${this._quantity}</span>
+            <div class="increment-btn">${incrementBtn}</div>
           `;
-      
-          const decrementBtn = addCartBtn.querySelector(".decrement-btn");
-          const incrementBtn = addCartBtn.querySelector(".increment-btn");
-          
-          if (incrementBtn){
-              incrementBtn.addEventListener("click", (event) => {
-                itemCount++;
-                const itemCountElement = addCartBtn.querySelector(".item-count");
-                if (itemCountElement) {
-                  itemCountElement.innerHTML = `${itemCount}`;
-                }
-              });
-          }
-          
-          if (decrementBtn){
-              decrementBtn.addEventListener("click", (event) => {
-                if (itemCount > 0) {
-                  itemCount--;
-                  const itemCountElement = addCartBtn.querySelector(".item-count");
-                  if (itemCountElement) {
-                    itemCountElement.innerHTML = `${itemCount}`;
-                  }
-                }
-              });
-          }
-          cart.addToCart(this, itemCount);
+
+        const selectDecrementBtn = addCartBtn.querySelector(".decrement-btn");
+        const selectIncrementBtn = addCartBtn.querySelector(".increment-btn");
+
+        if (selectIncrementBtn) {
+          selectIncrementBtn.addEventListener("click", (event) => {
+            this._quantity++;
+            const itemCountElement = addCartBtn.querySelector(".item-count");
+            if (itemCountElement) {
+              itemCountElement.innerHTML = `${this._quantity}`;
+            }
+            cart.addToCart(this, this._quantity);
+          });
         }
-      });
+
+        if (selectDecrementBtn) {
+          selectDecrementBtn.addEventListener("click", (event) => {
+            if (this._quantity > 0) {
+              this._quantity--;
+              const itemCountElement = addCartBtn.querySelector(".item-count");
+              if (itemCountElement) {
+                itemCountElement.innerHTML = `${this._quantity}`;
+              }
+              cart.removeFromCart(this)
+            }
+          });
+        }
+      }
+    });
 
     //Criando as informações dos cards
     const productInfo = document.createElement("div");
