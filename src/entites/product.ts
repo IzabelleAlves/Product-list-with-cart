@@ -82,10 +82,6 @@ export class Product {
     const incrementBtn = `<i class="fa fa-plus-circle" aria-hidden="true"></i>`;
     const decrementBtn = `<i class="fa fa-minus-circle" aria-hidden="true"></i>`;
 
-    //Variável para iterar itens que foram selecionados
-    // let itemCount = 0;
-
-    console.log("this._quantity product", this._quantity);
 
     //Evento para alterar a quantidade dos itens selecionados e mudar o itemCount
     addCartBtn.addEventListener("click", () => {
