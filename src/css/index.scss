@@ -101,6 +101,7 @@ main {
 .cart-item {
   padding: 10px;
   margin-bottom: 10px;
+  border-bottom: 1px solid $rose-100;
 }
 
 .infoName{
@@ -146,7 +147,7 @@ main {
 
 .cart {
   background-color: $white;
-  height: 200px;
+  height: fit-content;
   width: 250px;
   padding: 10px;
   border-radius: 5%;

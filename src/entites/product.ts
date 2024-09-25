@@ -8,6 +8,7 @@ export class Product {
   private _price: number = 0;
   private _imageUrl: string = "";
   private _quantity: number = 0;
+  // private _total: number = 0
 
   constructor(
     id: number,

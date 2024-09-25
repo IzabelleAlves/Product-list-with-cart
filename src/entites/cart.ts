@@ -42,6 +42,7 @@ export class Cart {
                 existingProduct.decrementQuantity();
                 this._total -= product.price;
             } else {
+                this._total -= product.price;
                 this._products = this._products.filter((p) => p.id !== product.id);
             }
         }
