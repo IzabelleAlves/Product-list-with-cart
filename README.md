@@ -2,6 +2,17 @@
 
 Product list with cart é a interface de um aplicativo web que permite aos usuários visualizar e interagir com uma lista de produtos, nesse caso sobremesas, e gerenciar um carrinho de compras. O projeto foi desenvolvido utilizando HTML, CSS, TypeScript e Vite.
 
+**_Telas_**
+_Tela principal_
+![](imagens-projeto/image.png)
+
+| Item adicionado ao carrinho     | Carrinho atualizado com o item  |
+| ------------------------------- | ------------------------------- |
+| ![](imagens-projeto/image1.png) | ![](imagens-projeto/image2.png) |
+
+_Modal de confirmação do pedido_
+![](imagens-projeto/image3.png)
+
 ## Estrutura do Projeto
 
 O projeto é composto pelos seguintes arquivos principais:
@@ -44,17 +55,6 @@ O projeto é composto pelos seguintes arquivos principais:
 - **TypeScript**: Lógica da aplicação e definição de tipos.
 - **Vite**: Ferramenta de build e desenvolvimento.
 - **UUID**: Para geração de IDs únicos para produtos.
-
-**_Telas_**
-_Tela principal_
-![](imagens-projeto/image.png)
-
-| Item adicionado ao carrinho     | Carrinho atualizado com o item  |
-| ------------------------------- | ------------------------------- |
-| ![](imagens-projeto/image1.png) | ![](imagens-projeto/image2.png) |
-
-_Modal de confirmação do pedido_
-![](imagens-projeto/image3.png)
 
 **_Entre em contato comigo_**
 
