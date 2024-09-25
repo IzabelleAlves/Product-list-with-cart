@@ -37,7 +37,7 @@ export class Cart {
     removeFromCart(product: Product) {
         const existingProduct = this._products.find((p) => p.id === product.id);
 
-        if (existingProduct) {
+        if (existingProduct) {  
             if (existingProduct.quantity > 1) {
                 existingProduct.decrementQuantity();
                 this._total -= product.price;
