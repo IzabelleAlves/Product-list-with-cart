@@ -218,3 +218,16 @@ main {
   font-size: 14px;
   padding: 10px;
 }
+
+.developer {
+  color: rgb(151, 151, 151);
+  font-size: 12px;
+  padding-top: 50px;
+  align-self: flex-start;
+}
+
+.developer a {
+  text-decoration: none;
+  color: rgb(151, 151, 151);
+  font-weight: bold;
+}
