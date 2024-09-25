@@ -47,7 +47,7 @@ O projeto é composto pelos seguintes arquivos principais:
 
 **_Telas_**
 _Tela principal_
-![](imagens-projeto/image.png)!
+![](imagens-projeto/image.png)
 
 | Item adicionado ao carrinho     | Carrinho atualizado com o item  |
 | ------------------------------- | ------------------------------- |
