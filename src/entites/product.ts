@@ -8,6 +8,7 @@ export class Product {
   private _price: number = 0;
   private _imageUrl: string = "";
   private _quantity: number = 0;
+  private _quantityTotal: number = 0
 
   constructor(
     id: number,
@@ -23,6 +24,10 @@ export class Product {
     (this._name = name),
     (this._imageUrl = imageUrl),
     (this._quantity = quantity)
+  }
+
+  get quantityTotal(){
+    return this._quantityTotal;
   }
 
   get category() {
@@ -48,6 +53,15 @@ export class Product {
   get id() {
     return this._id;
   }
+
+  addQantityTotal(){
+    this._quantityTotal++;
+  }
+
+  removeQantityTotal(){
+    this._quantityTotal--;
+  }
+
 
   incrementQuantity() {
     this._quantity++;

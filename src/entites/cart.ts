@@ -17,6 +17,7 @@ export class Cart {
 
         if (existingProduct) {
             existingProduct.incrementQuantity();
+            existingProduct.addQantityTotal();
             this._total += product.price;
         } else {
             this._total += product.price * quantity;
@@ -40,6 +41,7 @@ export class Cart {
         if (existingProduct) {  
             if (existingProduct.quantity > 1) {
                 existingProduct.decrementQuantity();
+                existingProduct.removeQantityTotal();
                 this._total -= product.price;
             } else {
                 this._total -= product.price;
