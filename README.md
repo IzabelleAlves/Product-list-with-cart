@@ -2,7 +2,12 @@
 
 Product list with cart é a interface de um aplicativo web que permite aos usuários visualizar e interagir com uma lista de produtos, nesse caso sobremesas, e gerenciar um carrinho de compras. O projeto foi desenvolvido utilizando HTML, CSS, TypeScript e Vite.
 
+## Visualize o Projeto
+
+Você pode ver o projeto em funcionamento através do link: [Projeto no Netlify](https://cart-product-site.netlify.app/).
+
 **_Telas_**
+
 _Tela principal_
 ![](imagens-projeto/image.png)
 
