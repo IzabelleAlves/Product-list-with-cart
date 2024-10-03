@@ -54,6 +54,7 @@ export class Cart {
       } else {
         this._total -= product.price;
         this._products = this._products.filter((p) => p.id !== product.id);
+        this._quantityTotal--
       }
     }
     this.updateCart();
@@ -95,6 +96,15 @@ export class Cart {
                         <span class="price-styles-total">$ ${(product.price * product.quantity).toFixed(2)}</span>
                     </div>
                 `;
+
+        //Clique no "x" do carrinho para remover os itens
+        // const removeBtn = itemElement.querySelector(".removeCart-btn");
+        // if (removeBtn && product.quantity >= 1) {
+        //   removeBtn.addEventListener("click", () => {
+        //     this.removeFromCart(product);
+        //   });
+        // }
+    
         cartContainer.append(itemElement);
       });
 

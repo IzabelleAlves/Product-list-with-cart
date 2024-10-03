@@ -104,6 +104,10 @@ main {
   border-bottom: 1px solid $rose-100;
 }
 
+.removeCart-btn{
+  cursor: pointer;
+}
+
 .infoName{
   display: flex;
   justify-content: space-between;

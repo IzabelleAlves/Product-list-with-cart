@@ -8,7 +8,6 @@ export class Product {
   private _price: number = 0;
   private _imageUrl: string = "";
   private _quantity: number = 0;
-  // private _quantityTotal: number = 0
 
   constructor(
     id: number,
@@ -25,10 +24,6 @@ export class Product {
     (this._imageUrl = imageUrl),
     (this._quantity = quantity)
   }
-
-  // get quantityTotal(){
-  //   return this._quantityTotal
-  // }
 
   get category() {
     return this._category;
@@ -106,7 +101,6 @@ export class Product {
       if (selectIncrementBtn) {
         selectIncrementBtn.addEventListener("click", (event) => {
           this._quantity++;
-          // this._quantityTotal++;
           const itemCountElement = addCartBtn.querySelector(".item-count");
           if (itemCountElement) {
             itemCountElement.innerHTML = `${this._quantity}`;
@@ -119,7 +113,6 @@ export class Product {
         selectDecrementBtn.addEventListener("click", (event) => {
           if (this._quantity > 0) {
             this._quantity--;
-            // this._quantityTotal++;
             const itemCountElement = addCartBtn.querySelector(".item-count");
             if (itemCountElement) {
               itemCountElement.innerHTML = `${this._quantity}`;
