@@ -4,7 +4,7 @@ Product list with cart é a interface de um aplicativo web que permite aos usuá
 
 ## Visualize o Projeto
 
-Você pode ver o projeto em funcionamento através do link: [Projeto no Netlify](https://cart-product-site.netlify.app/).
+Você pode ver o projeto em funcionamento através do link: [Product list with cart](https://cart-product-site.netlify.app/).
 
 **_Telas_**
 
