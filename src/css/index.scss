@@ -160,7 +160,7 @@ main {
   position: relative;
 }
 
-.header-cart {
+#header-cart {
   padding-top: 10px;
   margin-bottom: 10px;
   font-weight: bold;
@@ -202,8 +202,8 @@ main {
 }
 
 .order-btn {
-  height: 30px;
-  width: 200px;
+  height: 40px;
+  width: auto;
   font-size: 13px;
   background-color: $main-color;
   color: $white;

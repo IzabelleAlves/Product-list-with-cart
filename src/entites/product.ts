@@ -8,7 +8,7 @@ export class Product {
   private _price: number = 0;
   private _imageUrl: string = "";
   private _quantity: number = 0;
-  private _quantityTotal: number = 0
+  // private _quantityTotal: number = 0
 
   constructor(
     id: number,
@@ -26,9 +26,9 @@ export class Product {
     (this._quantity = quantity)
   }
 
-  get quantityTotal(){
-    return this._quantityTotal;
-  }
+  // get quantityTotal(){
+  //   return this._quantityTotal
+  // }
 
   get category() {
     return this._category;
@@ -53,15 +53,6 @@ export class Product {
   get id() {
     return this._id;
   }
-
-  addQantityTotal(){
-    this._quantityTotal++;
-  }
-
-  removeQantityTotal(){
-    this._quantityTotal--;
-  }
-
 
   incrementQuantity() {
     this._quantity++;
@@ -115,6 +106,7 @@ export class Product {
       if (selectIncrementBtn) {
         selectIncrementBtn.addEventListener("click", (event) => {
           this._quantity++;
+          // this._quantityTotal++;
           const itemCountElement = addCartBtn.querySelector(".item-count");
           if (itemCountElement) {
             itemCountElement.innerHTML = `${this._quantity}`;
@@ -127,6 +119,7 @@ export class Product {
         selectDecrementBtn.addEventListener("click", (event) => {
           if (this._quantity > 0) {
             this._quantity--;
+            // this._quantityTotal++;
             const itemCountElement = addCartBtn.querySelector(".item-count");
             if (itemCountElement) {
               itemCountElement.innerHTML = `${this._quantity}`;
@@ -169,6 +162,15 @@ export class Product {
     if (cards) {
       cards.appendChild(productCard);
     }
+
+    // const nameCart = document.getElementById("header-cart")
+    //     if (nameCart){
+    //         nameCart.innerHTML = `
+    //         <div>
+    //             Your Cart (${this._quantityTotal})
+    //         </div>
+    //         `
+    //     }
 
     //Renderizando tudo no html
     productCard.append(productImage, addCartBtn, productInfo);
