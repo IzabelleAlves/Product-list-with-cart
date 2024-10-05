@@ -167,6 +167,7 @@ main {
 #header-cart {
   padding-top: 10px;
   margin-bottom: 10px;
+  font-size:20px;
   font-weight: bold;
   color: $main-color;
   align-self: start;
@@ -256,38 +257,140 @@ main {
 }
 
 .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    position: fixed;
-    z-index: 1000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    text-align: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carbon {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #f7f5f5;
+  padding: 5px;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-order-list {
+  background-color: #f7f5f5;
+  font-size: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.order-list-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+  grid-row: 1 / 3;
+}
+
+.order-list-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.organize-products-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-styles-total-modal{
+  color: black; 
+  font-size: 17px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.product-name-order {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.organize-products-order {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+  flex-direction: row;
+  grid-column: 2;
+}
+
+.quantity-price-order {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: right;
+  align-content: center;
+  align-items: center;
+}
+
+.order-item-list ul {
+  list-style: none;
+}
+
+.modal-total {
+  background-color: #f7f5f5;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+}
+
+.header-modal {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 10px;
+  gap: 10px;
+}
+
+.header-modal img {
+  height: 40px;
+  width: 40px;
+}
+
+.header-modal span {
+  font-size: 12px;
+  color: #aaa;
 }
 
 .close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-    color: #000;
+  color: #000;
 }

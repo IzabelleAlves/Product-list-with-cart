@@ -156,15 +156,6 @@ export class Product {
       cards.appendChild(productCard);
     }
 
-    // const nameCart = document.getElementById("header-cart")
-    //     if (nameCart){
-    //         nameCart.innerHTML = `
-    //         <div>
-    //             Your Cart (${this._quantityTotal})
-    //         </div>
-    //         `
-    //     }
-
     //Renderizando tudo no html
     productCard.append(productImage, addCartBtn, productInfo);
   }
