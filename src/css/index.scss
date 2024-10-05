@@ -231,13 +231,13 @@ main {
 .developer {
   color: rgb(151, 151, 151);
   font-size: 12px;
-  padding-top: 50px;
+  padding-top: 10px;
   align-self: flex-start;
 }
 
 .developer a {
   text-decoration: none;
-  color: rgb(151, 151, 151);
+  color: $rose-400;
   font-weight: bold;
 }
 
