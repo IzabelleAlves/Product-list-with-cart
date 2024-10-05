@@ -7,14 +7,14 @@ Product list with cart é a interface de um aplicativo web que permite aos usuá
 Você pode ver o projeto em funcionamento através do link: [Product list with cart](https://cart-product-site.netlify.app/).
 
 _Tela principal_
-![](imagens-projeto/image.png)
+![](imagens-projeto/image.png) ![alt text](image.png)
 
 | Item adicionado ao carrinho     | Carrinho atualizado com o item  |
 | ------------------------------- | ------------------------------- |
 | ![](imagens-projeto/image1.png) | ![](imagens-projeto/image2.png) |
 
 _Modal de confirmação do pedido_
-![](imagens-projeto/image3.png)
+![](imagens-projeto//image3.png)
 
 ## Estrutura do Projeto
 
