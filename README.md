@@ -54,7 +54,7 @@ O projeto é composto pelos seguintes arquivos principais:
 ## Tecnologias Utilizadas
 
 - **HTML**: Estruturação da página.
-- **SASS (SCSS)**: Estilização do layout e design responsivo.
+- **SASS (SCSS)**: Estilização do layout.
 - **TypeScript**: Lógica da aplicação e definição de tipos.
 - **Vite**: Ferramenta de build e desenvolvimento.
 - **UUID**: Para geração de IDs únicos para produtos.
